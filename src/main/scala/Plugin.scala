@@ -73,7 +73,7 @@ object SbtClosurePlugin extends Plugin {
         (for {
           manifest <- sources.descendantsExcept(include, exclude).get
           outFile <- computeOutFile(sources, manifest, target, suffix)
-          if (manifest newerThan outFile)
+          //if (manifest newerThan outFile)
         } yield { (manifest, outFile) }) match {
           case Nil =>
             out.log.debug("No JavaScript manifest files to compile")
