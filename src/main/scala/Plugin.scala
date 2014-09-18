@@ -34,7 +34,7 @@ object SbtClosurePlugin extends Plugin {
   def closureSettingsIn(conf: Configuration): Seq[Setting[_]] =
     inConfig(conf)(closureSettings0 ++ Seq(
       sourceDirectory in closure <<= (sourceDirectory in conf) { _ / "javascript" },
-      resourceManaged in closure <<= (resourceManaged in conf) { _ / "js" },
+      resourceManaged in closure <<= (resourceManaged in conf) { _ / "web" / "js" },
       downloadDirectory in closure <<= (target in conf) { _ / "closure-downloads" },
       cleanFiles in closure <<= (resourceManaged in closure, downloadDirectory in closure)(_ :: _ :: Nil),
       watchSources <<= (unmanagedSources in closure)
